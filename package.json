@@ -1,0 +1,25 @@
+{
+  "name": "nyamusisi",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "deploy": "gh-pages -d dist"
+  },
+  "devDependencies": {
+    "@sveltejs/vite-plugin-svelte": "^5.0.0",
+    "gh-pages": "^6.3.0",
+    "svelte": "^5.2.7",
+    "vite": "^6.0.0"
+  },
+  "dependencies": {
+    "@deck.gl/core": "^9.2.6",
+    "@deck.gl/layers": "^9.2.6",
+    "@loaders.gl/core": "^4.3.4",
+    "@loaders.gl/parquet": "^4.3.4",
+    "three": "^0.182.0"
+  }
+}
