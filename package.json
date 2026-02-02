@@ -21,6 +21,7 @@
     "@deck.gl/layers": "^9.2.6",
     "@loaders.gl/core": "^4.3.4",
     "@loaders.gl/parquet": "^4.3.4",
+    "leaflet": "^1.9.4",
     "three": "^0.182.0"
   }
 }

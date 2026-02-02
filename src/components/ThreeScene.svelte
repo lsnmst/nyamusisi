@@ -5,7 +5,18 @@
     import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 
     let container;
+    let controls;
     let loading = true;
+    let interactive = false;
+
+    function setInteraction(active) {
+        interactive = active;
+        if (!controls) return;
+
+        controls.enabled = active;
+        controls.enableZoom = active;
+        controls.enableRotate = active;
+    }
 
     onMount(() => {
         const scene = new THREE.Scene();
@@ -20,18 +31,22 @@
         });
         renderer.setPixelRatio(Math.min(2, window.devicePixelRatio));
         container.appendChild(renderer.domElement);
+        renderer.setSize(container.clientWidth, container.clientHeight);
 
         scene.add(new THREE.AmbientLight(0xffffff, 0.7));
         const dir = new THREE.DirectionalLight(0xffffff, 0.6);
         dir.position.set(50, 50, 50);
         scene.add(dir);
 
-        const controls = new OrbitControls(camera, renderer.domElement);
+        controls = new OrbitControls(camera, renderer.domElement);
         controls.target.set(0, 0, 0);
         controls.enableDamping = true;
         controls.dampingFactor = 0.05;
-        controls.autoRotate = true;
-        controls.autoRotateSpeed = 0.4;
+
+        // 🔒 DISABILITATO DI DEFAULT
+        controls.enabled = false;
+        controls.enableZoom = false;
+        controls.enableRotate = false;
         controls.enablePan = false;
 
         // GLB loader
@@ -106,12 +121,19 @@
 </script>
 
 <div class="viewer-container">
+    {#if !interactive}
+        <button class="activate-btn" on:click={() => setInteraction(true)}>
+            Explorer le modèle
+        </button>
+    {/if}
+
     {#if loading}
         <div class="loading-overlay">
             <div class="spinner"></div>
             <p>Chargement en cours</p>
         </div>
     {/if}
+
     <div bind:this={container} class="viewer"></div>
 </div>
 
@@ -154,6 +176,23 @@
         border-radius: 50%;
         animation: spin 1s linear infinite;
         margin-bottom: 1rem;
+    }
+
+    .activate-btn {
+        position: absolute;
+        bottom: 1.5rem;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 20;
+
+        background: #0085ca;
+        color: white;
+        border: none;
+        padding: 0.6rem 1.2rem;
+        border-radius: 20px;
+        font-family: "Ga Maamli", sans-serif;
+        font-size: 0.85rem;
+        cursor: pointer;
     }
 
     @keyframes spin {

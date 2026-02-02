@@ -1,11 +1,12 @@
 <script>
   import ThreeScene from "./components/ThreeScene.svelte";
+  import Keymapsteps from "./components/Keymapsteps.svelte";
   import "./app.css";
 </script>
 
 <div class="layout">
   <div class="header">
-    <p>
+    <p style="color:#5d5769;">
       Rapport narratif rédigé par le Comité de Gestion de la Réserve Naturelle
       d'Idjwi-Nyamusisi
     </p>
@@ -19,23 +20,45 @@
           Nyamusisi
         </h2>
       </div>
-      <p>
-        [TEST] La déforestation de Nyamusisi n’est ni soudaine ni accidentelle.
-        Elle résulte d’un processus long, cumulatif, inscrit dans les
-        transformations régionales. La réserve a progressivement perdu ses
-        fonctions écologiques (régulation hydrique, habitat de la faune,
-        protection des sols) sous l’effet de pressions multiples.
+      <p
+        style="color:#5d5769;padding-left:1em;padding-right:1em;font-size:0.95; border-bottom:1px solid #0085ca; margin-block-start: 0em;margin-block-end: 0em;"
+      >
+        La présente publication du rapport narratif a pour objectif de favoriser
+        l’établissement de partenariats régionaux et internationaux, ainsi que
+        de mobiliser des ressources financières en vue de la mise en œuvre du
+        Plan Opérationnel Triennal du Comité de Gestion de la Réserve Naturelle
+        d’Idjwi-Nyamusisi. Le plan opérationnel triennal a été élaboré et
+        approuvé avec le soutien technique et financier de la GIZ, en
+        collaboration avec les autorités publiques (Ministère de
+        l'Environnement, ICCN, PNKB), les autorités traditionnelles, les
+        associations, les villages, les organisations de la société civile, les
+        populations autochtones et les groupes sociaux vulnérables.
       </p>
     </section>
+  </div>
 
-    <section>
-      <h1></h1>
-      <p></p>
-    </section>
+  <div class="map-wrapper" style="margin-top: 5em;">
+    <Keymapsteps />
   </div>
 
   <div class="three-wrapper">
     <ThreeScene />
+  </div>
+
+  <div class="story">
+    <section>
+      <div class="title">
+        <h1>Comment une réserve devient «défunte»</h1>
+        <h2>L'histoire de la Réserve forestière de Nyamusisi</h2>
+      </div>
+      <p>
+        La déforestation de la Réserve Forestière de Nyamusisi n’est ni soudaine
+        ni accidentelle. Elle résulte d’un processus long, cumulatif, inscrit
+        dans les transformations régionales. La réserve a progressivement perdu
+        ses fonctions écologiques (régulation hydrique, habitat de la faune,
+        protection des sols) sous l’effet de pressions multiples.
+      </p>
+    </section>
   </div>
 </div>
 
@@ -74,6 +97,13 @@
   .title {
     display: flex;
     border-bottom: 1px solid #0085ca;
+    padding: 1em;
+  }
+
+  .map-wrapper {
+    height: 60vh; /* o 80vh, l’altezza che vuoi dare alla storymap */
+    min-height: 500px;
+    width: 100%;
   }
 
   @media (max-width: 768px) {
