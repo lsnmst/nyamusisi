@@ -2,6 +2,8 @@
   import ThreeScene from "./components/ThreeScene.svelte";
   import Keymapsteps from "./components/Keymapsteps.svelte";
   import "./app.css";
+
+  let showModel = false;
 </script>
 
 <div class="layout">
@@ -11,6 +13,7 @@
       d'Idjwi-Nyamusisi
     </p>
   </div>
+
   <div class="story">
     <section>
       <div class="title">
@@ -37,13 +40,28 @@
     </section>
   </div>
 
-  <div class="map-wrapper" style="margin-top: 5em;">
+  <div class="map-wrapper" style="margin-top: 1em;">
     <Keymapsteps />
   </div>
 
-  <div class="three-wrapper">
-    <ThreeScene />
-  </div>
+  {#if showModel}
+    <div class="overlay">
+      <ThreeScene on:close={() => (showModel = false)} />
+    </div>
+  {:else}
+    <div class="three-wrapper">
+      <div class="model-preview">
+        <img
+          src={`${import.meta.env.BASE_URL}image/model.png`}
+          height="500px"
+          alt="Aperçu du modèle"
+        />
+        <button on:click={() => (showModel = true)}>
+          Explorer le modèle
+        </button>
+      </div>
+    </div>
+  {/if}
 
   <div class="story">
     <section>
@@ -104,6 +122,39 @@
     height: 60vh; /* o 80vh, l’altezza che vuoi dare alla storymap */
     min-height: 500px;
     width: 100%;
+  }
+
+  .model-preview {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1em;
+  }
+  .model-preview img {
+    max-width: 100%;
+    height: auto;
+  }
+  .model-preview button {
+    padding: 0.6em 1.2em;
+    border-radius: 20px;
+    background: #0085ca;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-family: "Ga Maamli", sans-serif !important;
+  }
+
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: #f3faeb;
+    z-index: 50;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   @media (max-width: 768px) {

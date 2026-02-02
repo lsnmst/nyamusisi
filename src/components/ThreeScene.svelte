@@ -1,5 +1,5 @@
 <script>
-    import { onMount } from "svelte";
+    import { onMount, createEventDispatcher } from "svelte";
     import * as THREE from "three";
     import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
     import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
@@ -9,10 +9,11 @@
     let loading = true;
     let interactive = false;
 
+    const dispatch = createEventDispatcher();
+
     function setInteraction(active) {
         interactive = active;
         if (!controls) return;
-
         controls.enabled = active;
         controls.enableZoom = active;
         controls.enableRotate = active;
@@ -42,14 +43,12 @@
         controls.target.set(0, 0, 0);
         controls.enableDamping = true;
         controls.dampingFactor = 0.05;
-
-        // 🔒 DISABILITATO DI DEFAULT
         controls.enabled = false;
         controls.enableZoom = false;
         controls.enableRotate = false;
         controls.enablePan = false;
 
-        // GLB loader
+        // 🔹 Lazy load GLB solo quando il componente viene montato
         const loader = new GLTFLoader();
         loader.load(
             `${import.meta.env.BASE_URL}data/point.glb`,
@@ -58,19 +57,17 @@
                 scene.add(model);
 
                 model.traverse((o) => {
-                    if (o.isMesh) {
+                    if (o.isMesh)
                         o.material = new THREE.MeshStandardMaterial({
                             vertexColors: !!o.geometry.attributes.color,
                             color: 0xffffff,
                         });
-                    }
                 });
 
                 const box = new THREE.Box3().setFromObject(model);
                 const center = box.getCenter(new THREE.Vector3());
                 const size = box.getSize(new THREE.Vector3());
                 const maxDim = Math.max(size.x, size.y, size.z);
-
                 model.position.sub(center);
 
                 camera.near = maxDim / 10000;
@@ -78,7 +75,6 @@
                 camera.updateProjectionMatrix();
                 camera.position.set(maxDim * 0.8, maxDim * 0.8, maxDim * 0.6);
                 camera.lookAt(0, 0, 0);
-
                 controls.minDistance = maxDim * 0.03;
                 controls.maxDistance = maxDim * 3;
                 controls.update();
@@ -98,7 +94,7 @@
             },
         );
 
-        // Resize renderer in base al container reale
+        // Resize renderer
         const resize = () => {
             const w = container.clientWidth;
             const h = container.clientHeight;
@@ -108,11 +104,9 @@
                 renderer.setSize(w, h);
             }
         };
-
         window.addEventListener("resize", resize);
-        resize(); // subito dimensioni corrette
+        resize();
 
-        // Animation loop
         renderer.setAnimationLoop(() => {
             controls.update();
             renderer.render(scene, camera);
@@ -130,11 +124,15 @@
     {#if loading}
         <div class="loading-overlay">
             <div class="spinner"></div>
-            <p>Chargement en cours</p>
+            <p>Chargement en cours...</p>
         </div>
     {/if}
 
     <div bind:this={container} class="viewer"></div>
+
+    <button class="back-btn" on:click={() => dispatch("close")}>
+        ← Retour
+    </button>
 </div>
 
 <style>
@@ -143,12 +141,10 @@
         width: 100%;
         height: 100%;
     }
-
     .viewer {
         width: 100%;
         height: 100%;
     }
-
     .loading-overlay {
         position: absolute;
         top: 0;
@@ -161,64 +157,48 @@
         justify-content: center;
         align-items: center;
         z-index: 10;
-    }
-
-    .loading-overlay p {
         font-family: "Ga Maamli", sans-serif !important;
         color: #0085ca;
     }
-
     .spinner {
         width: 30px;
         height: 30px;
         border: 4px solid #0085ca;
-        border-top-color: rgb(255, 255, 255);
+        border-top-color: #fff;
         border-radius: 50%;
         animation: spin 1s linear infinite;
         margin-bottom: 1rem;
     }
-
     .activate-btn {
         position: absolute;
         bottom: 1.5rem;
         left: 50%;
         transform: translateX(-50%);
         z-index: 20;
-
         background: #0085ca;
         color: white;
         border: none;
         padding: 0.6rem 1.2rem;
         border-radius: 20px;
-        font-family: "Ga Maamli", sans-serif;
-        font-size: 0.85rem;
         cursor: pointer;
+        font-family: "Ga Maamli", sans-serif !important;
     }
-
+    .back-btn {
+        position: absolute;
+        top: 1rem;
+        left: 1rem;
+        z-index: 20;
+        background: #0085ca;
+        color: white;
+        border: none;
+        padding: 0.4rem 0.8rem;
+        border-radius: 12px;
+        cursor: pointer;
+        font-family: "Ga Maamli", sans-serif !important;
+    }
     @keyframes spin {
         to {
             transform: rotate(360deg);
-        }
-    }
-
-    @media (max-width: 768px) {
-        .viewer-container,
-        .viewer {
-            width: 100%;
-            height: 100%;
-        }
-
-        .loading-overlay p {
-            font-size: 0.85rem;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-        }
-
-        .spinner {
-            width: 24px;
-            height: 24px;
-            border-width: 3px;
-            margin-bottom: 0.75rem;
         }
     }
 </style>
