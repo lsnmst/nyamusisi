@@ -49,7 +49,7 @@
     <Keymapsteps />
   </div>
 
-  <div class="story">
+  <div class="story" style="margin-top: 10em;">
     <section>
       <div class="title">
         <h1>Comment une réserve devient «défunte»</h1>
@@ -73,6 +73,16 @@
 
   <div>
     <Agro />
+  </div>
+
+  <div class="story" style="margin-top: 10em;">
+    <section>
+      <div class="title">
+        <h1>Les derniers survivants : les singes bleus</h1>
+        <h2>Quand la forêt disparaît, la biodiversité se réfugie</h2>
+      </div>
+      <p></p>
+    </section>
   </div>
 
   {#if showModel}
