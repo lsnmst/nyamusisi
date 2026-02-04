@@ -61,6 +61,8 @@ h1 {
   line-height: 1.1;
   margin-top: 10px;
   margin-bottom: 5px;
+  margin-right: 5px;
+  margin-left: 5px;
 }
 
 
@@ -76,7 +78,6 @@ p {
   font-family: 'Lora', serif;
   color: #0085ca;
   font-size: 0.9em;
-
 }
 
 .card {

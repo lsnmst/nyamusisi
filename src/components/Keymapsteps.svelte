@@ -26,29 +26,31 @@
         </section>
         <section on:mouseenter={() => (step = 1)}>Province du Sud-Kivu</section>
         <section on:mouseenter={() => (step = 2)}>
-            Île d'Idjwi<br /><br /><img
-                src={`${import.meta.env.BASE_URL}image/CD_Idjwi.jpg`}
-                height="400px"
-                alt="Idjwi"
-            />
+            Île d'Idjwi<br /><br />
             <p
                 style="font-size:x-small; text-align:left; margin-block-start: 0em;margin-block-end: 0em;"
             >
                 Diego Tirira, Creative Commons Attribution-Share Alike 2.0
                 Generic
             </p>
+            <img
+                src={`${import.meta.env.BASE_URL}image/CD_Idjwi.jpg`}
+                height="400px"
+                alt="Idjwi"
+            />
         </section>
         <section on:mouseenter={() => (step = 3)}>
-            Réserve Naturelle d'Idjwi-Nyamusisi<br /><br /><img
-                src={`${import.meta.env.BASE_URL}image/Idjwi_reserve.jpg`}
-                height="400px"
-                alt="Idjwi-reserve"
-            />
+            Réserve Naturelle d'Idjwi-Nyamusisi<br /><br />
             <p
                 style="font-size:x-small; text-align:left; margin-block-start: 0em;margin-block-end: 0em;"
             >
                 © Réserve Naturelle d’Idjwi-Nyamusisi
             </p>
+            <img
+                src={`${import.meta.env.BASE_URL}image/Idjwi_reserve.jpg`}
+                height="400px"
+                alt="Idjwi-reserve"
+            />
         </section>
     </div>
     <div class="keymapsteps-map"><Keymap {step} /></div>
@@ -63,6 +65,7 @@
         overflow-y: auto;
         scrollbar-width: none;
         -ms-overflow-style: none;
+        margin-top: 5em;
     }
     .keymapsteps-layout::-webkit-scrollbar {
         display: none;
