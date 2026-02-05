@@ -117,7 +117,7 @@
 <div class="viewer-container">
     {#if !interactive}
         <button class="activate-btn" on:click={() => setInteraction(true)}>
-            Explorer le modèle
+            Activer la rotation et le zoom de la maquette
         </button>
     {/if}
 

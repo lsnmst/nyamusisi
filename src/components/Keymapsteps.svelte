@@ -40,7 +40,7 @@
             />
         </section>
         <section on:mouseenter={() => (step = 3)}>
-            Réserve Naturelle d'Idjwi-Nyamusisi<br /><br />
+            Réserve Forestière de Nyamusisi<br /><br />
             <p
                 style="font-size:x-small; text-align:left; margin-block-start: 0em;margin-block-end: 0em;"
             >
