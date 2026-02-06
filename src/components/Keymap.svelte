@@ -63,7 +63,6 @@
             },
         ).addTo(map);
 
-        // garantisce dimensioni reali
         await new Promise((resolve) => {
             const check = () => {
                 const rect = mapContainer.getBoundingClientRect();

@@ -76,6 +76,7 @@
         overflow: visible;
         font-family: "Ga Maamli", sans-serif !important;
         color: #0085ca;
+        pointer-events: auto;
     }
 
     .keymapsteps-map {

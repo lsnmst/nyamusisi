@@ -46,7 +46,10 @@
     </div>
   </div>
 
-  <div class="map-wrapper" style="margin-top: 1em; margin-bottom:3em">
+  <div
+    class="map-wrapper"
+    style="margin-top: 1em; margin-bottom:1em; padding-bottom:3em"
+  >
     <Keymapsteps />
   </div>
 
@@ -229,7 +232,10 @@
     </section>
   </div>
 
-  <div>
+  <div style="margin-top: 5em;">
+    <h2 style="font-size: 1.5em;text-align:start;padding-left: 1em;">
+      Organisation/zonage de la Réserve Forestière de Nyamusisi
+    </h2>
     <Plan />
   </div>
 
@@ -275,9 +281,38 @@
     <section>
       <div class="title">
         <h1>Forêt, singes et écotourisme</h1>
-        <h2></h2>
+        <h2>
+          Vers l’autonomie de la gestion de la réserve, un modèle économique
+          local et durable
+        </h2>
       </div>
-      <p></p>
+      <p>
+        L’écotourisme communautaire est envisagé comme un levier économique
+        complémentaire. Les projets d’infrastructures légères s’appuient sur les
+        atouts naturels et culturels de l’île. Les guides, pisteurs,
+        gestionnaires de bungalows, transporteurs lacustres et artisans
+        bénéficient directement de cette économie. La protection de la
+        biodiversité devient ainsi une activité professionnelle. Cette dynamique
+        permet d’installer des revenus réguliers et diversifiés pour les ménages
+        riverains, réduisant leur dépendance aux activités destructrices et
+        renforçant l’acceptation sociale de la réserve. L’expérience proposée
+        dépasse l’observation naturaliste. Elle associe paysages, savoirs et
+        culture insulaire : pratiques agricoles, usages traditionnels des
+        plantes, histoire locale et vie quotidienne participent au récit. La
+        synergie entre lac et montagne renforce cette identité : navigation,
+        randonnée, observation de la faune et immersion culturelle composent un
+        parcours cohérent où nature et société sont indissociables.
+      </p>
+      <div class="box">
+        <p><i>Projets validés dans l'attente d'un cofinancement</i></p>
+        <h3>
+          ♦ Améliorer les infrastructures de connexion avec les voies lacustres
+          et garantir l'accessibilité à la Réserve Naturelle d’Idjwi-Nyamusisi<br
+          />
+          ♦ Construction de bungalows sur le site de Bulolero<br />
+          ♦ Préparation et soutien à la création de paquets touristiques<br />
+        </h3>
+      </div>
     </section>
   </div>
 </div>
