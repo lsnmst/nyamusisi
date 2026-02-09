@@ -92,7 +92,7 @@
 
     @media (max-width: 768px) {
         .keymapsteps-layout {
-            flex-direction: column; /* testo sopra mappa su mobile */
+            flex-direction: column;
         }
 
         .keymapsteps-story {

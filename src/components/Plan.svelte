@@ -21,7 +21,7 @@
 
     let step = 0;
 
-    // SCROLL = cervello del sistema
+    // SCROLL
     onMount(() => {
         const sections = Array.from(document.querySelectorAll(".story-step"));
 
@@ -73,7 +73,7 @@
         width: 100%;
     }
 
-    /* VISUALE */
+    /* VISUAL */
     .visual {
         position: sticky;
         top: 0;
@@ -82,7 +82,6 @@
         background: #f3faeb;
     }
 
-    /* ogni svg è uno step */
     .layer {
         position: absolute;
         inset: 0;

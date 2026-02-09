@@ -2,7 +2,8 @@
   import ThreeScene from "./components/ThreeScene.svelte";
   import Agro from "./components/Agro.svelte";
   import Plan from "./components/Plan.svelte";
-  import Keymapsteps from "./components/Keymapsteps.svelte";
+  import Step from "./components/Step.svelte";
+  import AgroforestrySchemeTable from "./components/AgroforestrySchemeTable.svelte";
   import "./app.css";
 
   let showModel = false;
@@ -46,12 +47,18 @@
     </div>
   </div>
 
+  <div>
+    <Step />
+  </div>
+
+  <!--   
   <div
     class="map-wrapper"
     style="margin-top: 1em; margin-bottom:1em; padding-bottom:3em"
   >
     <Keymapsteps />
   </div>
+ -->
 
   <div class="story" style="margin-top: 20em;border-top: 3px double #0085ca">
     <section>
@@ -277,6 +284,10 @@
     </section>
   </div>
 
+  <div>
+    <AgroforestrySchemeTable />
+  </div>
+
   <div class="story" style="margin-top: 20em;border-top: 3px double #0085ca">
     <section>
       <div class="title">
@@ -365,7 +376,7 @@
   }
 
   .map-wrapper {
-    height: 60vh; /* o 80vh, l’altezza che vuoi dare alla storymap */
+    height: 60vh; /* 80vh */
     min-height: 500px;
     width: 100%;
   }

@@ -21,7 +21,6 @@
             const scrollY = window.scrollY;
             const viewportHeight = window.innerHeight;
 
-            // Trova la sezione centrale del viewport
             const middle = scrollY + viewportHeight / 2;
 
             let currentStep = 0;
@@ -47,7 +46,7 @@
 </script>
 
 <div class="agro-layout">
-    <!-- MAPPA -->
+    <!-- MAP -->
     <div class="map">
         <img
             src={`${import.meta.env.BASE_URL}svg/layerbase.svg`}
@@ -84,7 +83,7 @@
         width: 100%;
     }
 
-    /* MAPPA */
+    /* MAP */
     .map {
         position: sticky;
         top: 0;

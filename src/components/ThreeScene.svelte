@@ -48,7 +48,7 @@
         controls.enableRotate = false;
         controls.enablePan = false;
 
-        // 🔹 Lazy load GLB solo quando il componente viene montato
+        // 🔹 Lazy load GLB
         const loader = new GLTFLoader();
         loader.load(
             `${import.meta.env.BASE_URL}data/point.glb`,
