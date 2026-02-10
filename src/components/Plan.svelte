@@ -1,16 +1,50 @@
 <script>
     import { onMount } from "svelte";
+    import { lang } from "../lib/lang";
 
     const steps = [
-        { id: "riserva", text: "Réserve Naturelle d'Idjwi-Nyamusisi" },
-        { id: "champs", text: "Villages et habitations" },
+        {
+            id: "riserva",
+            text: {
+                fr: "Réserve Naturelle d'Idjwi-Nyamusisi",
+                en: "Idjwi-Nyamusisi Nature Reserve",
+            },
+        },
+        {
+            id: "champs",
+            text: {
+                fr: "Villages et habitations",
+                en: "Villages and settlements",
+            },
+        },
         {
             id: "agro",
-            text: "Champs agricoles, élevage intégré et agroforesterie",
+            text: {
+                fr: "Champs agricoles, élevage intégré et agroforesterie",
+                en: "Farmland, integrated livestock and agroforestry",
+            },
         },
-        { id: "altitude", text: "Zone de conservation en haute altitude" },
-        { id: "savana", text: "Savane à vocation écologique" },
-        { id: "tourisme", text: "Accueil écotouristique" },
+        {
+            id: "altitude",
+            text: {
+                fr: "Zone de conservation en haute altitude",
+                en: "High altitude conservation area",
+            },
+        },
+        {
+            id: "savana",
+            text: {
+                fr: "Savane à vocation écologique",
+                en: "Ecological savanna",
+            },
+        },
+        {
+            id: "tourisme",
+            text: {
+                fr: "Accueil écotouristique",
+                en: "Ecotourism reception area",
+            },
+        },
     ];
 
     let step = 0;
@@ -55,9 +89,9 @@
 
     <!-- TEXT -->
     <div class="story">
-        {#each steps as s, i}
+        {#each steps as s}
             <section class="story-step">
-                <h2>{s.text}</h2>
+                <h2>{s.text[$lang]}</h2>
             </section>
         {/each}
     </div>
@@ -69,7 +103,6 @@
         width: 100%;
     }
 
-    /* VISUAL */
     .visual {
         position: sticky;
         top: 0;
@@ -92,7 +125,6 @@
         opacity: 1;
     }
 
-    /* TEXT */
     .story {
         width: 30%;
     }

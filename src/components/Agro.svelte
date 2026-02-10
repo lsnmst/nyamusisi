@@ -1,15 +1,33 @@
 <script>
     import { onMount } from "svelte";
+    import { lang } from "../lib/lang";
 
     const steps = [
         {
             year: 2003,
-            text: "Expansion des terres agraires (période 2003-2019)",
+            fr: "Extension des surfaces agricoles (2003–2019)",
+            en: "Expansion of agricultural land (2003–2019)",
         },
-        { year: 2007, text: "" },
-        { year: 2011, text: "" },
-        { year: 2015, text: "" },
-        { year: 2019, text: "" },
+        {
+            year: 2007,
+            fr: "Progression des cultures vivrières",
+            en: "Expansion of subsistence crops",
+        },
+        {
+            year: 2011,
+            fr: "Réduction du couvert forestier",
+            en: "Forest cover reduction",
+        },
+        {
+            year: 2015,
+            fr: "Fragmentation des habitats naturels",
+            en: "Fragmentation of natural habitats",
+        },
+        {
+            year: 2019,
+            fr: "Pression agricole maximale observée",
+            en: "Peak agricultural pressure observed",
+        },
     ];
 
     let step = 0;
@@ -20,7 +38,6 @@
         const updateStep = () => {
             const scrollY = window.scrollY;
             const viewportHeight = window.innerHeight;
-
             const middle = scrollY + viewportHeight / 2;
 
             let currentStep = 0;
@@ -28,9 +45,7 @@
                 const rect = sec.getBoundingClientRect();
                 const top = rect.top + scrollY;
                 const bottom = top + rect.height;
-                if (middle >= top && middle <= bottom) {
-                    currentStep = i;
-                }
+                if (middle >= top && middle <= bottom) currentStep = i;
             });
 
             step = currentStep;
@@ -53,11 +68,12 @@
             class="layer base"
             alt="Layer base"
         />
+
         {#each steps as s, i}
             <img
                 src={`${import.meta.env.BASE_URL}svg/${s.year}.svg`}
                 class="layer {i === step ? 'visible' : ''}"
-                alt="Anno {s.year}"
+                alt="Year {s.year}"
             />
         {/each}
     </div>
@@ -66,12 +82,11 @@
     <div class="stor">
         {#each steps as s, i}
             <section on:mouseover={() => handleMouseEnter(i)}>
-                <p
-                    style="font-family: 'Ga Maamli', sans-serif !important;color: #0085ca;"
-                >
-                    {s.text}
+                <p class="text">
+                    {$lang === "fr" ? s.fr : s.en}
                 </p>
-                <p>{s.year}</p>
+
+                <p class="year">{s.year}</p>
             </section>
         {/each}
     </div>
@@ -127,5 +142,15 @@
         padding: 2rem;
         border-bottom: 1px solid #ddd;
         cursor: pointer;
+    }
+
+    .text {
+        font-family: "Ga Maamli", sans-serif !important;
+        color: #0085ca;
+    }
+
+    .year {
+        font-family: "Lora", serif;
+        color: #0085ca;
     }
 </style>

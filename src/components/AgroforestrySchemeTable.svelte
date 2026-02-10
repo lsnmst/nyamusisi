@@ -1,24 +1,48 @@
 <script>
+    import { lang } from "../lib/lang";
+
+    const headers = {
+        fr: ["Strate agroforestière", "Plantes", "Fonctions principales"],
+        en: ["Agroforestry layer", "Plants", "Main functions"],
+    };
+
     const rows = [
         {
-            layer: "Strate supérieure",
-            subtitle: "(arbres de haut jet – ombrage et structure)",
+            layer: {
+                fr: "Strate supérieure",
+                en: "Upper layer",
+            },
+            subtitle: {
+                fr: "(arbres de haut jet – ombrage et structure)",
+                en: "(tall trees – shade and structure)",
+            },
             plants: [
                 "Gliricidia sepium",
                 "Maesopsis eminii",
                 "Ficus spp.",
                 "Strombosia scheffleri",
             ],
-            functions: [
-                "Ombrage pour le café et le cacao",
-                "Amélioration de la fertilité des sols",
-                "Protection contre l’érosion",
-                "Bois de service et bois énergie",
-            ],
+            functions: {
+                fr: [
+                    "Ombrage pour le café et le cacao",
+                    "Amélioration de la fertilité des sols",
+                    "Protection contre l’érosion",
+                    "Bois de service et bois énergie",
+                ],
+                en: [
+                    "Shade for coffee and cocoa",
+                    "Soil fertility improvement",
+                    "Erosion control",
+                    "Timber and fuelwood",
+                ],
+            },
         },
         {
-            layer: "Strate intermédiaire",
-            subtitle: "(arbres fruitiers et cultures pérennes)",
+            layer: { fr: "Strate intermédiaire", en: "Middle layer" },
+            subtitle: {
+                fr: "(arbres fruitiers et cultures pérennes)",
+                en: "(fruit trees and perennial crops)",
+            },
             plants: [
                 "Theobroma cacao",
                 "Coffea arabica / robusta",
@@ -26,16 +50,27 @@
                 "Mangifera indica",
                 "Psidium guajava",
             ],
-            functions: [
-                "Revenus commerciaux réguliers",
-                "Diversification économique",
-                "Production alimentaire et marchande",
-                "Stabilité des systèmes agricoles",
-            ],
+            functions: {
+                fr: [
+                    "Revenus commerciaux réguliers",
+                    "Diversification économique",
+                    "Production alimentaire et marchande",
+                    "Stabilité des systèmes agricoles",
+                ],
+                en: [
+                    "Regular income",
+                    "Economic diversification",
+                    "Food and market production",
+                    "Agricultural system stability",
+                ],
+            },
         },
         {
-            layer: "Strate inférieure",
-            subtitle: "(cultures vivrières et herbacées)",
+            layer: { fr: "Strate inférieure", en: "Lower layer" },
+            subtitle: {
+                fr: "(cultures vivrières et herbacées)",
+                en: "(food crops and herbaceous plants)",
+            },
             plants: [
                 "Ananas comosus",
                 "Manihot esculenta",
@@ -43,38 +78,55 @@
                 "Ipomoea batatas",
                 "Légumes-feuilles locaux",
             ],
-            functions: [
-                "Sécurité alimentaire des ménages",
-                "Production rapide et continue",
-                "Alimentation diversifiée et nutritive",
-            ],
+            functions: {
+                fr: [
+                    "Sécurité alimentaire des ménages",
+                    "Production rapide et continue",
+                    "Alimentation diversifiée et nutritive",
+                ],
+                en: [
+                    "Household food security",
+                    "Fast and continuous production",
+                    "Diverse and nutritious diet",
+                ],
+            },
         },
         {
-            layer: "Plantes de service",
-            subtitle: "(fertilité, fourrage, protection)",
+            layer: { fr: "Plantes de service", en: "Service plants" },
+            subtitle: {
+                fr: "(fertilité, fourrage, protection)",
+                en: "(fertility, fodder, protection)",
+            },
             plants: [
                 "Leucaena leucocephala",
                 "Calliandra calothyrsus",
                 "Moringa oleifera",
                 "Erythrina spp.",
             ],
-            functions: [
-                "Fixation de l’azote",
-                "Amélioration durable des sols",
-                "Fourrage pour l’élevage intégré",
-                "Feuilles nutritives pour les familles",
-            ],
+            functions: {
+                fr: [
+                    "Fixation de l’azote",
+                    "Amélioration durable des sols",
+                    "Fourrage pour l’élevage intégré",
+                    "Feuilles nutritives pour les familles",
+                ],
+                en: [
+                    "Nitrogen fixation",
+                    "Long-term soil improvement",
+                    "Fodder for integrated livestock",
+                    "Nutritious leaves for households",
+                ],
+            },
         },
     ];
 </script>
 
 <div class="agro-layout">
-    ```
     <!-- IMAGE -->
     <div class="scheme">
         <img
             src={`${import.meta.env.BASE_URL}image/agrofo.png`}
-            alt="Schéma agroforestier"
+            alt="Agroforestry scheme"
         />
     </div>
 
@@ -83,9 +135,9 @@
         <table>
             <thead>
                 <tr>
-                    <th>Strate agroforestière</th>
-                    <th>Plantes</th>
-                    <th>Fonctions principales</th>
+                    <th>{headers[$lang][0]}</th>
+                    <th>{headers[$lang][1]}</th>
+                    <th>{headers[$lang][2]}</th>
                 </tr>
             </thead>
 
@@ -93,8 +145,8 @@
                 {#each rows as r}
                     <tr>
                         <td class="layer">
-                            <strong>{r.layer}</strong><br />
-                            <span class="subtitle">{r.subtitle}</span>
+                            <strong>{r.layer[$lang]}</strong><br />
+                            <span class="subtitle">{r.subtitle[$lang]}</span>
                         </td>
 
                         <td class="scientific">
@@ -107,7 +159,7 @@
 
                         <td>
                             <ul>
-                                {#each r.functions as f}
+                                {#each r.functions[$lang] as f}
                                     <li>{f}</li>
                                 {/each}
                             </ul>
@@ -117,7 +169,6 @@
             </tbody>
         </table>
     </div>
-    ```
 </div>
 
 <style>

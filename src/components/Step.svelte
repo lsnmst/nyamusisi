@@ -3,7 +3,7 @@
     import { lang } from "../lib/lang";
 
     import StepRDC from "./steps/StepRDC.svelte";
-    import StepSudKivu from "./steps/StepSudKivu.svelte";
+    import StepSudKivu from "./steps/StepSudKivutest.svelte";
     import StepIdjwi from "./steps/StepIdjwi.svelte";
     import StepNyamusisi from "./steps/StepNyamusisi.svelte";
 

@@ -1,5 +1,7 @@
 <script>
     import { onMount, createEventDispatcher } from "svelte";
+    import { lang } from "../lib/lang";
+
     import * as THREE from "three";
     import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
     import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
@@ -10,6 +12,22 @@
     let interactive = false;
 
     const dispatch = createEventDispatcher();
+
+    /* 🌍 translations */
+    const t = {
+        activate: {
+            fr: "Activer la rotation et le zoom de la maquette",
+            en: "Enable model rotation and zoom",
+        },
+        loading: {
+            fr: "Chargement en cours...",
+            en: "Loading...",
+        },
+        back: {
+            fr: "← Retour",
+            en: "← Back",
+        },
+    };
 
     function setInteraction(active) {
         interactive = active;
@@ -48,7 +66,6 @@
         controls.enableRotate = false;
         controls.enablePan = false;
 
-        // 🔹 Lazy load GLB
         const loader = new GLTFLoader();
         loader.load(
             `${import.meta.env.BASE_URL}data/point.glb`,
@@ -81,20 +98,10 @@
 
                 loading = false;
             },
-            (xhr) => {
-                if (xhr.total) {
-                    console.log(
-                        `GLB ${((xhr.loaded / xhr.total) * 100).toFixed(0)}% loaded`,
-                    );
-                }
-            },
-            (err) => {
-                console.error("GLB load error", err);
-                loading = false;
-            },
+            undefined,
+            () => (loading = false),
         );
 
-        // Resize renderer
         const resize = () => {
             const w = container.clientWidth;
             const h = container.clientHeight;
@@ -117,21 +124,21 @@
 <div class="viewer-container">
     {#if !interactive}
         <button class="activate-btn" on:click={() => setInteraction(true)}>
-            Activer la rotation et le zoom de la maquette
+            {t.activate[$lang]}
         </button>
     {/if}
 
     {#if loading}
         <div class="loading-overlay">
             <div class="spinner"></div>
-            <p>Chargement en cours...</p>
+            <p>{t.loading[$lang]}</p>
         </div>
     {/if}
 
     <div bind:this={container} class="viewer"></div>
 
     <button class="back-btn" on:click={() => dispatch("close")}>
-        ← Retour
+        {t.back[$lang]}
     </button>
 </div>
 
