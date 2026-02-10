@@ -161,7 +161,7 @@
     }
 
     td {
-        vertical-align: top;
+        vertical-align: middle;
         padding: 14px 12px;
         font-family: "Lora", serif;
         font-size: 0.95em;

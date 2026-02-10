@@ -3,27 +3,21 @@
 
     const steps = [
         { id: "riserva", text: "Réserve Naturelle d'Idjwi-Nyamusisi" },
-        {
-            id: "champs",
-            text: "Villages et habitations",
-        },
+        { id: "champs", text: "Villages et habitations" },
         {
             id: "agro",
             text: "Champs agricoles, élevage intégré et agroforesterie",
         },
-        {
-            id: "altitude",
-            text: "Zone de conservation en haute altitude",
-        },
+        { id: "altitude", text: "Zone de conservation en haute altitude" },
         { id: "savana", text: "Savane à vocation écologique" },
         { id: "tourisme", text: "Accueil écotouristique" },
     ];
 
     let step = 0;
+    let container;
 
-    // SCROLL
     onMount(() => {
-        const sections = Array.from(document.querySelectorAll(".story-step"));
+        const sections = Array.from(container.querySelectorAll(".story-step"));
 
         const updateStep = () => {
             const middle = window.scrollY + window.innerHeight / 2;
@@ -42,10 +36,12 @@
 
         window.addEventListener("scroll", updateStep, { passive: true });
         updateStep();
+
+        return () => window.removeEventListener("scroll", updateStep);
     });
 </script>
 
-<div class="layout">
+<div class="layout" bind:this={container}>
     <!-- VISUAL -->
     <div class="visual">
         {#each steps as s, i}
@@ -96,7 +92,7 @@
         opacity: 1;
     }
 
-    /* TESTO */
+    /* TEXT */
     .story {
         width: 30%;
     }

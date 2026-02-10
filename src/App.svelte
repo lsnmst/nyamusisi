@@ -1,4 +1,6 @@
 <script>
+  import LangSwitch from "./components/LangSwitch.svelte";
+
   import ThreeScene from "./components/ThreeScene.svelte";
   import Agro from "./components/Agro.svelte";
   import Plan from "./components/Plan.svelte";
@@ -9,6 +11,8 @@
   let showModel = false;
   let mapStep = 0;
 </script>
+
+<LangSwitch />
 
 <div class="layout">
   <!-- svelte-ignore a11y_no_static_element_interactions -->
@@ -170,10 +174,14 @@
         autour de la réserve ne sont pas opposées à la forêt. Elles sont
         opposées à une conservation imposée, qui ignorerait leurs besoins vitaux
         et leurs droits fonciers. À Nyamusisi, la restauration écologique est
-        donc conçue comme un processus de dialogue et de paix sociale. Le Plan
-        Opérationnel Triennal consacre un pilier entier à l’engagement
-        communautaire, reconnaissant que la restauration écologique à Nyamusisi
-        est indissociable de la résolution des conflits fonciers et sociaux. Les
+        donc conçue comme un processus de dialogue et de paix sociale. Restaurer
+        signifie négocier parcelle par parcelle. Les limites de la réserve
+        traversent aujourd’hui des champs cultivés depuis parfois plus de vingt
+        ans ; la solution ne peut donc être ni l’expulsion ni le statu quo, mais
+        une requalification progressive des usages. Le Plan Opérationnel
+        Triennal consacre un pilier entier à l’engagement communautaire,
+        reconnaissant que la restauration écologique à Nyamusisi est
+        indissociable de la résolution des conflits fonciers et sociaux. Les
         activités d’identification des occupants, d’évaluation des superficies
         occupées et d’analyse des besoins constituent la base de ce processus.
         Reconnaît et identifie les zones de la forêt défunte que la communauté
@@ -259,33 +267,70 @@
         La relance de l’agroforesterie figure parmi les investissements majeurs
         du Plan Opérationnel Triennal. Elle répond simultanément à trois
         objectifs stratégiques : sécurité alimentaire, réduction de la pression
-        sur la réserve et amélioration des revenus des ménages riverains.
-        L’agroforesterie ne cherche pas à opposer agriculture et conservation,
-        mais à les réconcilier dans un même système productif. En associant
-        arbres, cultures vivrières et élevage intégré, elle recrée des paysages
-        productifs capables de nourrir durablement les ménages tout en
-        reconstituant les fonctions écologiques perdues : fertilité des sols,
-        infiltration de l’eau, microclimat et stockage de carbone. Le programme
-        s'adresse en priorité aux groupes les plus dépendants des ressources
-        naturelles, en particulier les femmes et les communautés autochtones,
-        non pas pour des raisons purement symboliques, mais parce qu'ils sont au
-        cœur de l'économie réelle du territoire. L’agroforesterie sécurise
-        d’abord l’alimentation. Les cultures vivrières sont maintenues mais
-        stabilisées par la fertilité restaurée des sols, tandis que les arbres
-        apportent des productions complémentaires : fruits, produits forestiers
-        non ligneux, fourrage et bois domestique. À moyen terme, certaines
-        filières telles que le café, le cacao et les produits agroforestiers
-        génèrent des revenus commerciaux réguliers. Les familles ne dépendent
-        plus d'une seule récolte saisonnière vulnérable aux variations
-        climatiques. Cette diversification réduit la vulnérabilité économique
-        et, par conséquent, la nécessité de puiser dans les réserves en période
-        de crise.
+        sur la réserve et amélioration des revenus des ménages riverains. Sur
+        Idjwi, chaque amélioration de rendement agricole évite directement un
+        nouveau défrichement, car l’expansion spatiale est la seule variable
+        d’ajustement disponible pour les ménages. L’agroforesterie ne cherche
+        pas à opposer agriculture et conservation, mais à les réconcilier dans
+        un même système productif. En associant arbres, cultures vivrières et
+        élevage intégré, elle recrée des paysages productifs capables de nourrir
+        durablement les ménages tout en reconstituant les fonctions écologiques
+        perdues : fertilité des sols, infiltration de l’eau, microclimat et
+        stockage de carbone. Le programme s'adresse en priorité aux groupes les
+        plus dépendants des ressources naturelles, en particulier les femmes et
+        les communautés autochtones, non pas pour des raisons purement
+        symboliques, mais parce qu'ils sont au cœur de l'économie réelle du
+        territoire. L’agroforesterie sécurise d’abord l’alimentation. Les
+        cultures vivrières sont maintenues mais stabilisées par la fertilité
+        restaurée des sols, tandis que les arbres apportent des productions
+        complémentaires : fruits, produits forestiers non ligneux, fourrage et
+        bois domestique. À moyen terme, certaines filières telles que le café,
+        le cacao et les produits agroforestiers génèrent des revenus commerciaux
+        réguliers. Les familles ne dépendent plus d'une seule récolte
+        saisonnière vulnérable aux variations climatiques. Cette diversification
+        réduit la vulnérabilité économique et, par conséquent, la nécessité de
+        puiser dans les réserves en période de crise.
       </p>
     </section>
   </div>
 
-  <div>
+  <div style="margin-top:10em">
     <AgroforestrySchemeTable />
+  </div>
+
+  <div class="story" style="margin-top: 20em;border-top: 3px double #0085ca">
+    <section>
+      <div class="title">
+        <h1>Les femmes au cœur de la restauration</h1>
+        <h2>Soigner la terre pour sécuriser les familles</h2>
+      </div>
+      <p>
+        La restauration écologique de la Réserve Forestière de Nyamusisi passe
+        d’abord par celles qui vivent quotidiennement du territoire. Les femmes
+        assurent l’essentiel de la production alimentaire, de la collecte du
+        bois énergie, de l’entretien des parcelles et de l’éducation
+        environnementale informelle au sein des familles. Elles sont donc à la
+        fois les premières affectées par la dégradation de la forêt et les
+        premières capables d’en transformer l’usage. Lorsque la forêt disparaît,
+        les distances de collecte augmentent, le temps de travail s’allonge et
+        la sécurité alimentaire du ménage diminue. Restaurer la forêt signifie
+        donc aussi réduire la pénibilité quotidienne et stabiliser la vie
+        domestique. Le Plan Opérationnel Triennal reconnaît explicitement ce
+        rôle central et prévoit d’appuyer les femmes comme actrices prioritaires
+        de la transition écologique locale.
+      </p>
+
+      <div class="box">
+        <p><i>Projets validés dans l'attente d'un cofinancement</i></p>
+        <h3>
+          ♦ Construction de pépinières communautaires gérées par des groupes de
+          femmes et de banques de semences<br />
+          ♦ Subventions pour l'agroforesterie familiale<br />
+          ♦ Mise en œuvre de mesures visant à garantir la participation aux comités
+          locaux de gestion<br />
+        </h3>
+      </div>
+    </section>
   </div>
 
   <div class="story" style="margin-top: 20em;border-top: 3px double #0085ca">
@@ -314,6 +359,21 @@
         randonnée, observation de la faune et immersion culturelle composent un
         parcours cohérent où nature et société sont indissociables.
       </p>
+      <div class="video-container">
+        <video
+          src={`${import.meta.env.BASE_URL}video/hopeland.mp4`}
+          controls
+          playsinline
+          loop
+          muted
+        ></video>
+      </div>
+      <p
+        style="font-size:small; text-align:center; margin-block-start: 0em;margin-block-end: 0em;"
+      >
+        Installations hôtelières sur l'île d'Idjwi vues depuis le lac © Ley
+        Uwera
+      </p>
       <div class="box">
         <p><i>Projets validés dans l'attente d'un cofinancement</i></p>
         <h3>
@@ -323,6 +383,84 @@
           ♦ Construction de bungalows sur le site de Bulolero<br />
           ♦ Préparation et soutien à la création de paquets touristiques<br />
         </h3>
+      </div>
+    </section>
+  </div>
+
+  <div class="story" style="margin-top: 20em;border-top: 3px double #0085ca">
+    <section>
+      <div class="title">
+        <h1>La forêt vit si la communauté en vit</h1>
+        <h2>Gestion communautaire + éducation environnementale</h2>
+      </div>
+      <p>
+        La conservation ne se maintient pas uniquement par la surveillance, mais
+        par l’apprentissage. En travaillant avec les écoles et les universités,
+        la réserve devient un espace pédagogique vivant où les jeunes
+        comprennent concrètement le lien entre environnement, alimentation et
+        avenir économique. Protéger la forêt cesse alors d’être une obligation
+        extérieure et devient un choix éclairé. L’éducation environnementale
+        prépare aussi la gestion communautaire. Une population informée
+        participe davantage aux décisions, comprend les règles d’usage et
+        contribue à prévenir les conflits. La protection ne repose plus
+        uniquement sur l’autorité, mais sur l’adhésion collective. Lorsque la
+        communauté comprend la forêt, elle la protège ; lorsque la forêt
+        soutient la communauté, elle dure.
+      </p>
+      <div class="box">
+        <p><i>Projets validés dans l'attente d'un cofinancement</i></p>
+        <h3>
+          ♦ Projet de réseau éducatif autour de la réserve avec les écoles et
+          les universités<br />
+          ♦ Mise en œuvre d'un programme Sport et environnement<br />
+          ♦ Attribution de bourses d'études de la réserve<br />
+        </h3>
+      </div>
+    </section>
+  </div>
+
+  <div class="story" style="margin-top: 20em;border-top: 3px double #0085ca">
+    <section>
+      <div class="title">
+        <h1>
+          La restauration est déjà en marche. Soutenez la réserve à retrouver
+          son paysage vivant. Contactez-nous
+        </h1>
+      </div>
+      <div>
+        <img
+          src={`${import.meta.env.BASE_URL}svg/logo.svg`}
+          height="100px"
+          style="margin-top:2em;"
+          alt="Logo Réserve Naturelle d’Idjwi-Nyamusisi"
+        />
+        <p>
+          ⾕ Bugarula, Idjwi, Sud-Kivu, RDC <br />⾕ 34 av. Hypodrome, Q.
+          Nyalukemba, V. Bukavu, Sud-Kivu, RDC<br />☏ +243 999 193 998, +243 976
+          022 521<br />✉
+          <a href="mailto:rnaidir@reservenaturelleidjwi.org"
+            >rnaidir@reservenaturelleidjwi.org</a
+          >,
+          <a href="mailto:infosrnaia@gmail.com">infosrnaia@gmail.com</a><br />☞
+          <a href="https://reservenaturelleidjwi.org/"
+            >reservenaturelleidjwi.org</a
+          >
+        </p>
+        <p>
+          La Réserve naturelle d’Idjwi-Nyamusisi a été créée par l’arrêté
+          provincial du Sud-Kivu n° 22/131/GP/SK du 20 mai 2022 en tant qu’une
+          réserve communautaire d’intérêt local placée sous la gestion des ETD
+          Chefferie Ntambuka et Chefferie Rubenga. Pour maximiser une gestion
+          efficace conjointe, les deux chefferies ont mis en place une structure
+          dénommée « Comité de gestion de la Réserve naturelle d’Idjwi-Nyamusisi
+          » en tant qu’une organisation étatique à même de sauvegarder les
+          intérêts communautaires de deux chefferies que regorge l’île d’Idjwi
+          et rendre ensuite compte au gouvernement provincial du Sud-Kivu et au
+          Ministère National de l’Environnement et Développement Durable à
+          travers la Coordination Provinciale de l’Environnement et
+          Développement Durable du Sud-Kivu. Le Comité de gestion dispose d’une
+          ONG enregistrée sous le numéro F92/52.340. Dos « CGRI Asbl »
+        </p>
       </div>
     </section>
   </div>
@@ -441,6 +579,24 @@
     padding-top: 0.5em;
     padding-bottom: 0.5em;
     border-bottom: 1px solid #f3faeb;
+  }
+
+  .video-container {
+    width: 100%;
+    max-width: 400px;
+    margin: 2em auto;
+    aspect-ratio: 9 / 16;
+    overflow: hidden;
+    border-radius: 12px;
+    background: #000;
+  }
+
+  .video-container video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    filter: grayscale(75%);
   }
 
   @media (max-width: 768px) {

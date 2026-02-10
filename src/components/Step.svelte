@@ -1,5 +1,6 @@
 <script>
-    import { onMount } from "svelte";
+    import { onMount, afterUpdate } from "svelte";
+    import { lang } from "../lib/lang";
 
     import StepRDC from "./steps/StepRDC.svelte";
     import StepSudKivu from "./steps/StepSudKivu.svelte";
@@ -9,55 +10,56 @@
     const steps = [
         { id: "cd", component: StepRDC },
         { id: "sk", component: StepSudKivu },
-        { id: "idwji", component: StepIdjwi },
+        { id: "idjwi", component: StepIdjwi },
         { id: "res", component: StepNyamusisi },
     ];
 
     let step = 0;
     let sections = [];
 
+    function updateStep() {
+        const middle = window.scrollY + window.innerHeight * 0.5;
+        let current = 0;
+
+        sections.forEach((sec, i) => {
+            const rect = sec.getBoundingClientRect();
+            const top = rect.top + window.scrollY;
+            const bottom = top + rect.height;
+
+            if (middle >= top && middle <= bottom) current = i;
+        });
+
+        step = current;
+    }
+
     onMount(() => {
         sections = Array.from(document.querySelectorAll(".story-step"));
-
-        const updateStep = () => {
-            const middle = window.scrollY + window.innerHeight * 0.5;
-
-            let current = 0;
-            sections.forEach((sec, i) => {
-                const rect = sec.getBoundingClientRect();
-                const top = rect.top + window.scrollY;
-                const bottom = top + rect.height;
-
-                if (middle >= top && middle <= bottom) current = i;
-            });
-
-            step = current;
-        };
-
+        updateStep();
         window.addEventListener("scroll", updateStep, { passive: true });
+    });
+
+    afterUpdate(() => {
+        sections = Array.from(document.querySelectorAll(".story-step"));
         updateStep();
     });
 </script>
 
 <div class="layout">
-    <div class="story">
-        {#each steps as s, i}
+    <div class="storya">
+        {#each steps as s, i (s.id)}
             <section class="story-step">
-                <!-- MOBILE MAP -->
                 <img
                     class="mobile-map"
                     src={`${import.meta.env.BASE_URL}image/${s.id}.png`}
                     alt={s.id}
                 />
-
                 <svelte:component this={s.component} />
             </section>
         {/each}
     </div>
 
-    <!-- DESKTOP MAP -->
-    <div class="visual">
-        {#each steps as s, i}
+    <div class="visuale">
+        {#each steps as s, i (s.id)}
             <img
                 src={`${import.meta.env.BASE_URL}image/${s.id}.png`}
                 alt={s.id}
@@ -74,7 +76,7 @@
         width: 100%;
     }
 
-    .visual {
+    .visuale {
         position: sticky;
         top: 0;
         width: 45%;
@@ -96,7 +98,7 @@
         opacity: 1;
     }
 
-    .story {
+    .storya {
         width: 55%;
     }
 
@@ -116,11 +118,11 @@
             flex-direction: column;
         }
 
-        .visual {
+        .visuale {
             display: none;
         }
 
-        .story {
+        .storya {
             width: 100%;
         }
 
