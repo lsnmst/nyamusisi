@@ -251,20 +251,19 @@
     @media (max-width: 768px) {
         .agro-layout {
             flex-direction: column;
+            gap: 1rem;
         }
 
         .scheme {
             position: relative;
             top: auto;
             width: 100%;
+            max-width: 100%;
         }
 
         .table-wrapper {
             width: 100%;
-        }
-
-        table {
-            font-size: 0.9rem;
+            max-width: 100%;
         }
     }
 </style>

@@ -137,4 +137,10 @@
         height: 90vh;
         padding: 3rem;
     }
+
+    @media (max-width: 768px) {
+        .visual {
+            width: 60%;
+        }
+    }
 </style>

@@ -36,4 +36,10 @@
         background: #0085ca;
         color: #f3faeb;
     }
+
+    @media (max-width: 768px) {
+        .lang-switch {
+            top: 70px;
+        }
+    }
 </style>

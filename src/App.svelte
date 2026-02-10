@@ -24,7 +24,7 @@
   <!-- svelte-ignore a11y_no_static_element_interactions -->
   <div class="pre-keymap-trigger" on:mouseenter={() => (mapStep = 0)}>
     <div class="header">
-      <p style="color:#5d5769;padding:0">
+      <p class="header-text" style="color:#5d5769;padding:0">
         {content.header.text}
       </p>
     </div>
@@ -85,6 +85,7 @@
       <img
         src={`${import.meta.env.BASE_URL}image/singe.jpg`}
         height="500px"
+        class="img-size"
         alt="Image capturée par une caméra piège PEX sur le site de Bulolero, Réserve
         Naturelle d’Idjwi-Nyamusisi © Réserve Naturelle d’Idjwi-Nyamusisi"
       />
@@ -135,7 +136,7 @@
       </p>
       <img
         src={`${import.meta.env.BASE_URL}svg/ghs.svg`}
-        class=""
+        class="img-size"
         alt="GHS"
         height="650"
       />
@@ -439,6 +440,9 @@
     h2,
     p {
       padding: 10px;
+    }
+    .img-size {
+      height: 200px !important;
     }
   }
 </style>

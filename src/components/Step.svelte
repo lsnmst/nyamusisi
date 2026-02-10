@@ -10,7 +10,7 @@
     const steps = [
         { id: "cd", component: StepRDC },
         { id: "sk", component: StepSudKivu },
-        { id: "idjwi", component: StepIdjwi },
+        { id: "idwji", component: StepIdjwi },
         { id: "res", component: StepNyamusisi },
     ];
 
