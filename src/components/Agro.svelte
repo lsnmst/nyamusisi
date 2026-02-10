@@ -155,18 +155,8 @@
     }
 
     @media (max-width: 768px) {
-        .agro-layout {
-            overflow-x: hidden;
-        }
-
         .map {
-            width: 100%;
-            max-width: 100%;
-            overflow: hidden;
-        }
-
-        .stor {
-            width: 100%;
+            width: 70%;
         }
     }
 </style>

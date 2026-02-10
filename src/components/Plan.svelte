@@ -142,5 +142,8 @@
         .visual {
             width: 60%;
         }
+        .story-step h2 {
+            font-size: 1em;
+        }
     }
 </style>
