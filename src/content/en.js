@@ -4,7 +4,7 @@ export default {
     },
 
     intro: {
-        title: "From defunct reserve to living landscape",
+        title: "Bringing a lost reserve back to a living landscape",
         subtitle:
             "Restoration and community management of the Nyamusisi Forest Reserve",
         text: `This report aims to foster regional and international partnerships and to attract the financial resources needed to bring the Three-Year Operational Plan of the Idjwi-Nyamusisi Nature Reserve Management Committee to life. Developed and approved with the technical and financial support of GIZ, the Plan reflects a broad collaboration with public authorities (including the Ministry of the Environment, ICCN, and PNKB), traditional leaders, local associations, villages, civil society organizations, indigenous communities, and other vulnerable social groups.`
@@ -89,7 +89,7 @@ export default {
 
     foot: {
         title: "Restoration is already underway. Support the reserve in restoring its living landscape. Contact us",
-        text: `The Idjwi-Nyamusisi Nature Reserve was created by South Kivu Provincial Decree No. 22/131/GP/SK of May 20, 2022, as a community reserve of local interest under the management of the Ntambuka and Rubenga chiefdoms. To maximize effective joint management, the two chiefdoms have set up a structure called the “Nature Reserve Management Committee” as a state organization capable of safeguarding the community interests of the two chiefdoms that populate Idjwi Island and then reporting to the provincial government of South Kivu and the National Ministry of Environment and Sustainable Development through the Provincial Coordination of Environment and Sustainable Development of South Kivu. The Management Committee has an NGO registered under number F92/52.340. Name: “CGRI Asbl.”`
+        text: `The Idjwi-Nyamusisi Nature Reserve was created by South Kivu Provincial Decree No. 22/131/GP/SK of May 20, 2022, as a community reserve of local interest under the management of the Ntambuka and Rubenga chiefdoms. To maximize effective joint management, the two chiefdoms have set up a structure called the “Nature Reserve Management Committee” as a state organization capable of safeguarding the community interests of the two chiefdoms that populate Idjwi Island and then reporting to the provincial government of South Kivu and the National Ministry of Environment and Sustainable Development through the Provincial Coordination of Environment and Sustainable Development of South Kivu. The Management Committee has an NGO registered under number F92/52.340: “CGRI Asbl.”`
     }
 
 };

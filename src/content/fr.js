@@ -7,12 +7,11 @@ export default {
         title: "De réserve défunte à paysage vivant",
         subtitle:
             "Restauration et gestion communautaire de la Réserve forestière de Nyamusisi",
-        text: `La présente publication du rapport narratif a pour objectif de
-          favoriser l’établissement de partenariats régionaux et internationaux,
+        text: `Le présent rapport narratif a pour objectif de favoriser l’établissement de partenariats régionaux et internationaux,
           ainsi que de mobiliser des ressources financières en vue de la mise en
           œuvre du Plan Opérationnel Triennal du Comité de Gestion de la Réserve
           Naturelle d’Idjwi-Nyamusisi. Le Plan Opérationnel Triennal a été
-          élaboré et approuvé avec le soutien technique et financier de la GIZ,
+          élaboré et validé avec l’appui technique et financier de la GIZ,
           en collaboration avec les autorités publiques (Ministère de
           l'Environnement, ICCN, PNKB), les autorités traditionnelles, les
           associations, les villages, les organisations de la société civile,
@@ -27,10 +26,9 @@ export default {
         les transformations régionales. La réserve a progressivement perdu ses fonctions
         écologiques (régulation hydrique, habitat de la faune, protection des sols)
         sous l’effet de pressions multiples. À la pression démographique due à l'afflux
-        de réfugiés causé par les conflits armés dans la région viennent s'ajouter
-        des raisons communes à d'autres études de cas en RDC et dans le continent
+        de réfugiés causé par les conflits armés dans la région viennent s’ajouter d’autres facteurs observés dans de nombreux contextes en RDC et sur le continent
         : l'insécurité foncière, la demande croissante de terres agricoles en raison
-        de la crise alimentaire et l'augmentation de la demande en énergie bois,
+        de la crise alimentaire et l’augmentation de la demande en bois-énergie,
         l'absence de gouvernance appropriée de la réserve.`
     },
 
@@ -64,7 +62,7 @@ export default {
         projects: `♦ Création de zones d'observation de la faune<br />
           ♦ Formation de guides écologiques<br />
           ♦ Création de sentiers écologiques<br />
-          ♦ Habituer les singes à cohabiter avec les humains<br />`
+          ♦ Programme d’habituation progressive des singes à la présence humaine<br />`
     },
 
     communa: {
@@ -84,11 +82,10 @@ export default {
         indissociable de la résolution des conflits fonciers et sociaux. Les
         activités d’identification des occupants, d’évaluation des superficies
         occupées et d’analyse des besoins constituent la base de ce processus.
-        Reconnaît et identifie les zones de la forêt défunte que la communauté
-        considère comme restaurables et les zones non négociables car elles
+        Le processus permet d’identifier les zones de la forêt dégradée que la communauté considère comme restaurables et les zones non négociables car elles
         assurent leur subsistance.`,
         boxtitle: "Projets validés dans l'attente d'un cofinancement",
-        project: `♦ Projet de identification des occupants & médiation foncière
+        project: `♦ Projet d'identification des occupants & médiation foncière
           (restaurer sans déplacer)<br />
           ♦ Reconnaissance des activités alternatives à l'exploitation intensive
           des ressources naturelles et mise en place de mesures incitatives ainsi
@@ -140,8 +137,7 @@ export default {
         stockage de carbone. Le programme s'adresse en priorité aux groupes les
         plus dépendants des ressources naturelles, en particulier les femmes et
         les communautés autochtones, non pas pour des raisons purement
-        symboliques, mais parce qu'ils sont au cœur de l'économie réelle du
-        territoire. L’agroforesterie sécurise d’abord l’alimentation. Les
+        symboliques, mais parce qu'elles se trouvent au cœur de l’économie réelle du territoire. L’agroforesterie sécurise d’abord l’alimentation. Les
         cultures vivrières sont maintenues mais stabilisées par la fertilité
         restaurée des sols, tandis que les arbres apportent des productions
         complémentaires : fruits, produits forestiers non ligneux, fourrage et
@@ -171,7 +167,7 @@ export default {
         de la transition écologique locale.`,
         boxtitle: "Projets validés dans l'attente d'un cofinancement",
         projects: `♦ Construction de pépinières communautaires gérées par des groupes de
-          femmes et de banques de semences<br />
+          femmes et création de banques de semences<br />
           ♦ Subventions pour l'agroforesterie familiale<br />
           ♦ Mise en œuvre de mesures visant à garantir la participation aux comités
           locaux de gestion<br />`
@@ -198,7 +194,7 @@ export default {
         caption: "Installations hôtelières sur l'île d'Idjwi vues depuis le lac © Ley Uwera",
         boxtitle: "Projets validés dans l'attente d'un cofinancement",
         projects: `♦ Améliorer les infrastructures de connexion avec les voies lacustres
-          et garantir l'accessibilité à la Réserve Naturelle d’Idjwi-Nyamusisi<br
+          et garantir l'accessibilité à la Réserve naturelle d’Idjwi-Nyamusisi<br
           />
           ♦ Construction de bungalows sur le site de Bulolero<br />
           ♦ Préparation et soutien à la création de paquets touristiques<br />`
@@ -240,6 +236,6 @@ export default {
           Ministère National de l’Environnement et Développement Durable à
           travers la Coordination Provinciale de l’Environnement et
           Développement Durable du Sud-Kivu. Le Comité de gestion dispose d’une
-          ONG enregistrée sous le numéro F92/52.340. Dos « CGRI Asbl »`
+          ONG enregistrée sous le numéro F92/52.340: « CGRI Asbl »`
     }
 };
