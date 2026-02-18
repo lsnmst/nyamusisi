@@ -16,11 +16,13 @@
   import en from "./content/en";
 
   $: content = $lang === "fr" ? fr : en;
+
+  let open = false;
 </script>
 
 <LangSwitch />
 
-<div class="layout">
+<div class="layout {open ? 'modal-open' : ''}">
   <!-- svelte-ignore a11y_no_static_element_interactions -->
   <div class="pre-keymap-trigger" on:mouseenter={() => (mapStep = 0)}>
     <div class="header">
@@ -297,7 +299,38 @@
       </div>
     </section>
   </div>
+
+  <section class="letter">
+    <a
+      href={`${import.meta.env.BASE_URL}pdf/RNAI-Appel-${$lang}.pdf`}
+      target="_blank"
+      rel="noopener noreferrer"
+      style="text-decoration: none; font-weight:400; font-family: 'Lora', serif;"
+    >
+      <img
+        src={`${import.meta.env.BASE_URL}image/RNAI-Appel.jpg`}
+        alt="Lettre du directeur"
+      />
+
+      <div class="caption">
+        {$lang === "fr"
+          ? "Lettre du Directeur de la Réserve forestière de Nyamusisi à ses partenaires et bailleurs de fonds"
+          : "Letter from the Director of the Nyamusisi Forest Reserve to its partners and donors"}
+      </div>
+      <div style="height:100px"></div>
+    </a>
+  </section>
 </div>
+
+{#if open}
+  <div class="pdf-overlay">
+    <div class="backdrop" on:click={() => (open = false)}></div>
+
+    <div class="pdf-frame">
+      <iframe src={`${import.meta.env.BASE_URL}pdf/RNAI-Appel.pdf`}></iframe>
+    </div>
+  </div>
+{/if}
 
 <style>
   :global(html, body, #app) {
@@ -430,6 +463,85 @@
     object-fit: cover;
     display: block;
     filter: grayscale(75%);
+  }
+
+  .letter {
+    max-width: 200px;
+    margin: 2rem auto;
+    cursor: pointer;
+    color: #0085ca;
+  }
+
+  .letter img {
+    width: 100%;
+    box-shadow: 0 20px 20px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease;
+  }
+
+  .letter:hover img {
+    transform: scale(1.02);
+  }
+
+  .caption {
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    opacity: 0.7;
+    color: #0085ca;
+    line-height: 1.2rem;
+  }
+
+  .caption span {
+    margin-left: 1rem;
+  }
+
+  /* blocca il div che intercetta gli eventi */
+  .modal-open .story {
+    pointer-events: none;
+  }
+
+  /* permette al pdf di ricevere i click */
+  .modal-open .pdf-overlay {
+    pointer-events: auto;
+  }
+
+  /* overlay */
+  .pdf-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+  }
+
+  /* sfondo cliccabile */
+  .backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.75);
+  }
+
+  /* contenitore pdf */
+  .pdf-frame {
+    position: relative;
+    margin: auto;
+    width: min(1100px, 96vw);
+    height: 92vh;
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+
+  .pdf-frame iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+
+  @keyframes fade {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
   }
 
   @media (max-width: 768px) {
